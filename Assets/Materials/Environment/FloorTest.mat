@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonMaterialLit
+  m_Name: FloorTest
   m_Shader: {fileID: -6465566751694194690, guid: 7d402dad733febb42a61602d1299d13b,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Main_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9c9aab8f5b574104f950dae16c04fc8b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
@@ -51,8 +51,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RimBrightness: 10
-    - _RimCutoff: 0.5
-    - _RimPower: 1
+    - _RimCutoff: 0.68
+    - _RimPower: 1.12
     - _ShadeSize: 0.49
     - _Toon_Ramp_Offset: 0.49
     - _Toon_Ramp_Smoothnesss: 0
@@ -60,7 +60,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.13683695, g: 0.54055226, b: 0.7075472, a: 1}
     - _Toon_Ramp_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Toon_Ramp_Tinting: {r: 0.62264144, g: 0.62264144, b: 0.62264144, a: 1}
+    - _Toon_Ramp_Tinting: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3909873140154860130
 MonoBehaviour:
