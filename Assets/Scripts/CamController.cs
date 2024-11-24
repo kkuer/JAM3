@@ -19,6 +19,7 @@ public class CamController : MonoBehaviour
     public AudioSource SFX_ThermalOff;
 
     public TMP_Text camIndicator;
+    public TMP_Text camName;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class CamController : MonoBehaviour
     void Update()
     {
         camIndicator.text = "CAM " + (currentCamIndex + 1);
+        camName.text = cameras[currentCamIndex].name;
 
         //switch cameras
         if (Input.GetKeyDown(KeyCode.RightArrow))    //D?, RightArrow
