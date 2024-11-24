@@ -91,4 +91,21 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = false;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "enemy") 
+        { 
+            EnemyBehaviour enemyScript = other.gameObject.GetComponent<EnemyBehaviour>();
+            enemyScript.inView = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            EnemyBehaviour enemyScript = other.gameObject.GetComponent<EnemyBehaviour>();
+            enemyScript.inView = false;
+        }
+    }
 }
