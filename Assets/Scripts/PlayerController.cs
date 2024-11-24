@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem walkingParticles;
     public ParticleSystem jumpingParticles;
 
+    public Animator animator;
+    public Animator animatorThermal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,10 @@ public class PlayerController : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
 
+            //change anim
+            animator.SetBool("IsMoving", true);
+            animatorThermal.SetBool("IsMoving", true);
+
             //play walking particles
             if (!walkingParticles.isPlaying)
             {
@@ -71,6 +78,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //change anim
+            animator.SetBool("IsMoving", false);
+            animatorThermal.SetBool("IsMoving", false);
+
+            //stop walking particles
             walkingParticles.Stop();
         }
     }
