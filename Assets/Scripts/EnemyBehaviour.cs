@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public Slider visionCooldownSlider;
     public GameObject spottedExclamation;
+
+    public SceneFade fadeScript;
 
     [SerializeField] float sensitivity;
 
@@ -39,6 +42,10 @@ public class EnemyBehaviour : MonoBehaviour
         else if (spotted)
         {
             spottedExclamation.SetActive(true);
+
+            //spotted
+            string currentScene = SceneManager.GetActiveScene().name;
+            StartCoroutine(fadeScript.fadeScene(currentScene));
         }
     }
 
@@ -52,6 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             visionCooldownSlider.value = visionCooldownSlider.maxValue;
             visionCooldownSlider.gameObject.SetActive(false);
+
             spotted = true;
         }
     }

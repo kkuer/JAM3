@@ -99,6 +99,11 @@ public class PlayerController : MonoBehaviour
             EnemyBehaviour enemyScript = other.gameObject.GetComponent<EnemyBehaviour>();
             enemyScript.inView = true;
         }
+        else if (other.gameObject.tag == "interactable")
+        {
+            DoorBehaviour doorScript = other.gameObject.GetComponent<DoorBehaviour>();
+            doorScript.inRange = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -106,6 +111,11 @@ public class PlayerController : MonoBehaviour
         {
             EnemyBehaviour enemyScript = other.gameObject.GetComponent<EnemyBehaviour>();
             enemyScript.inView = false;
+        }
+        else if (other.gameObject.tag == "interactable")
+        {
+            DoorBehaviour doorScript = other.gameObject.GetComponent<DoorBehaviour>();
+            doorScript.inRange = false;
         }
     }
 }

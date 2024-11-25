@@ -33,17 +33,17 @@ public class CamController : MonoBehaviour
         camName.text = cameras[currentCamIndex].name;
 
         //switch cameras
-        if (Input.GetKeyDown(KeyCode.RightArrow))    //D?, RightArrow
+        if (Input.GetKeyDown(KeyCode.RightArrow))    //next camera
         {
             nextCam(currentCam);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))   //A?, LeftArrow
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))   //prev camera
         {
             prevCam(currentCam);
         }
 
         //toggle thermal layer
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             //play visual effect
 
