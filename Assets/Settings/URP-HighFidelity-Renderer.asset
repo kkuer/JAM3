@@ -68,9 +68,7 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 5830726123118205758}
-  - {fileID: 7908755683495888919}
-  - {fileID: 1718105326945768570}
-  m_RendererFeatureMap: adc0de57c6d2eee53e1b0d3784e6ea5017c81f4a648bc16d7a144f23b1efd717
+  m_RendererFeatureMap: adc0de57c6d2eee53e1b0d3784e6ea50
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -113,20 +111,6 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
---- !u!114 &1718105326945768570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d97da06d1b4e6e64e837fe2d4f512162, type: 3}
-  m_Name: DigitalGlitchFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  shader: {fileID: 4800000, guid: f543b3af2e0e5044caa979485a566d18, type: 3}
 --- !u!114 &4010333821629111028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,21 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b3ad99dc0c9c84db8f0cb29f3c9fdf, type: 3}
   m_Name: PixelizeFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     renderPassEvent: 550
     screenHeight: 256
---- !u!114 &7908755683495888919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e65186ef1f25f74b9e6da90e3a9c15e, type: 3}
-  m_Name: AnalogGlitchFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  shader: {fileID: 4800000, guid: a8806b096c701424f865bdd5e4b76928, type: 3}
