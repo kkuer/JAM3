@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
+using UnityEngine.Rendering;
 
 public class CamController : MonoBehaviour
 {
@@ -17,9 +19,12 @@ public class CamController : MonoBehaviour
 
     public AudioSource SFX_ThermalOn;
     public AudioSource SFX_ThermalOff;
+    public AudioSource SFX_CamSwitch;
 
     public TMP_Text camIndicator;
     public TMP_Text camName;
+
+    public GameObject camFlash;
 
     void Start()
     {
@@ -36,10 +41,14 @@ public class CamController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))    //next camera
         {
             nextCam(currentCam);
+            SFX_CamSwitch.Play();
+            StartCoroutine(flash());
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))   //prev camera
         {
             prevCam(currentCam);
+            SFX_CamSwitch.Play();
+            StartCoroutine(flash());
         }
 
         //toggle thermal layer
@@ -91,13 +100,17 @@ public class CamController : MonoBehaviour
         //hide other cameras
         foreach (GameObject cam in cameras)
         {
+            CinemachineVirtualCamera camComponent = cam.GetComponent<CinemachineVirtualCamera>();
+
             if (cam != newCam)
             {
-                cam.SetActive(false);
+                cam.transform.Find("CCTV").gameObject.SetActive(true);
+                camComponent.enabled = false;
             }
             else
             {
-                cam.SetActive(true);
+                cam.transform.Find("CCTV").gameObject.SetActive(false);
+                camComponent.enabled = true;
             }
         }
     }
@@ -123,14 +136,25 @@ public class CamController : MonoBehaviour
         //hide other cameras
         foreach (GameObject cam in cameras)
         {
+            CinemachineVirtualCamera camComponent = cam.GetComponent<CinemachineVirtualCamera>();
+
             if (cam != newCam)
             {
-                cam.SetActive(false);
+                cam.transform.Find("CCTV").gameObject.SetActive(true);
+                camComponent.enabled = false;
             }
             else
             {
-                cam.SetActive(true);
+                cam.transform.Find("CCTV").gameObject.SetActive(false);
+                camComponent.enabled = true;
             }
         }
+    }
+
+    IEnumerator flash()
+    {
+        camFlash.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        camFlash.SetActive(false);
     }
 }
